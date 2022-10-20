@@ -3,7 +3,7 @@
 ## Metodologia:
 
 Nesta etapa foi utilizado como entrada os dados pré-processados da Meta 9 e os modelos apresentados no artigo submetido na meta 6.
-A metodologia consistiu na realização de uma analise cruzada da utilização de técnicas de representação vetorizada dos textos (Keras Embedding, Word2Vec, Longformer) com modelos de aprendizagem profunda (SNN, DNN, CNN, LSTM).
+A metodologia consistiu na realização de uma análise cruzada da utilização de técnicas de representação vetorizada dos textos (Keras Embedding, Word2Vec, Longformer) com modelos de aprendizagem profunda (SNN, DNN, CNN, LSTM).
 
 ## Implementação:
 
@@ -54,17 +54,17 @@ Longformer + CNN	94.09	90.69	83.41	100
 
 Os resultados obtidos superaram os alcançados na meta 6 e na meta 9, com a melhor acurácia obtida de 94% no modelo longformer + CNN. Podemos também observar que os modelos que alcançaram os melhores resultados foram os que utilizaram a rede CNN para o aprendizado profundo.
 
-Além disso foi possível perceber que o modelo do longformer + SNN e longformer + LSTM não foram capazes de aprender. Talvez os modelos necessitem de alguns ajustes porém cada tentativa de treino levava entre 5 e 8 horas o que tornou inviável a tentativa de ajustar quando outros modelos já estavam apresentando resultados promissores.
+Além disso foi possível perceber que o modelo do longformer + SNN e longformer + LSTM não foram capazes de aprender. Talvez os modelos necessitem de alguns ajustes, porém cada tentativa de treino levava entre 5 e 8 horas o que tornou inviável a tentativa de ajustar quando outros modelos já estavam apresentando resultados promissores.
 
 Acima dos resultados obtidos também é necessário destacar dois limitantes encontrados para a replicação e treino das redes:
 
 *Limitante de performance*: Carregar o modelo longformer em memória significa necessitar de 11Gb disponíveis apenas para o modelo, sem considerar o peso da rede de deep learning. Para o treinamento isso significa que precisamos de uma GPU de 20+ Gb para realizar o treino. Aqui isso foi resolvido utilizando o ambiente de alta RAM do google Colab Pro e treinando utilizando CPU o que justifica o maior tempo de treino por época.
 
-Esses 10Gb do modelo excedem o limite do Github e não foram para o repositório, portanto para rodar o sistema precisamos fazer o download da rede pré-treinada no notebook e rodar o encoder-decoder com os dados para criar o modelo. Aconselha-se fazer isso em ambiente de GPU e salvar o arquivo no drive. Após isso trocar o ambiente para CPU para realizar o treinamento. Tentar gerar o modelo em CPU levará  mais de 3 horas de processamento.
+Esses 10Gb do modelo excedem o limite do Github e não foram para o repositório, portanto para rodar o sistema precisamos fazer o download da rede pré-treinada no notebook e rodar o encoder-decoder com os dados para criar o modelo. Aconselha-se fazer isso em ambiente de GPU e salvar o arquivo no drive. Após isso trocar o ambiente para CPU para realizar o treinamento. Tentar gerar o modelo em CPU levará mais de 3 horas de processamento.
 
 *Limitante de replicabilidade*: Devido a simplicidade do modelo do keras embedding, estamos utilizando one hot encodding, e ele possui um delicado problema para replicação em produção. Este detalhe está pendente de mais estudo para definir se é possível utilizar um desses modelos.
 
 
-O melhor modelo que não apresenta nenhum limitante é o Word2Vec + CNN. Porém precismos estudar as limitações para entender se é possível introduzir um novo modelo com melhor acurácia e indicadores. Estes ajustes serão trabalhados ao decorrer das metas 13 e 14 onde o objetivo central será encapsular a solução da maneira mais adequada para uso em produção.
+O melhor modelo que não apresenta nenhum limitante é o Word2Vec + CNN. Porém precisamos estudar as limitações para entender se é possível introduzir um novo modelo com melhor acurácia e indicadores. Estes ajustes serão trabalhados ao decorrer das metas 13 e 14 onde o objetivo central será encapsular a solução da maneira mais adequada para uso em produção.
 
 
